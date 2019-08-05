@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="ifest_pu">
+	
+		<class>br.edu.ifpb.ifest2.entities.Cliente</class>
+		<class>br.edu.ifpb.ifest2.entities.Fornecedor</class>
+		<class>br.edu.ifpb.ifest2.entities.Endereco</class>
+		<class>br.edu.ifpb.ifest2.entities.Foto</class>
+		<class>br.edu.ifpb.ifest2.entities.Midia</class>
+		<class>br.edu.ifpb.ifest2.entities.Pessoa</class>
+		<class>br.edu.ifpb.ifest2.entities.Post</class>
+		<class>br.edu.ifpb.ifest2.entities.Servico</class>
+		<class>br.edu.ifpb.ifest2.entities.Video</class>
+			
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/ifest"/>
+			<property name="javax.persistence.jdbc.cliente" value="ifestcliente"/>
+			<property name="javax.persistence.jdbc.password" value="ifestpassword"/>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
