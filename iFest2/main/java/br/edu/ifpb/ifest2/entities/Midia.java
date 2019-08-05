@@ -2,7 +2,7 @@ package br.edu.ifpb.ifest2.entities;
 
 import java.util.Set;
 
-public class Midia {
+public class Midia extends Identificavel{
 	
 	private Long id;
 	

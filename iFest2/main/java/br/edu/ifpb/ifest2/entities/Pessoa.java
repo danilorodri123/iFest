@@ -1,6 +1,6 @@
 package br.edu.ifpb.ifest2.entities;
 
-public class Pessoa {
+public class Pessoa extends Identificavel{
 	
 	private Long id;
 	private String nome;

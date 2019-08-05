@@ -2,7 +2,7 @@ package br.edu.ifpb.ifest2.entities;
 
 import java.util.Date;
 
-public class Servico {
+public class Servico extends Identificavel{
 	
 	private Long id;
 	private String descricao;

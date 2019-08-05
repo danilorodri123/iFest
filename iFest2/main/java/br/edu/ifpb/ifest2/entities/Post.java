@@ -2,7 +2,7 @@ package br.edu.ifpb.ifest2.entities;
 
 import java.util.Set;
 
-public class Post {
+public class Post extends Identificavel{
 	
 	private Long id;
 	private String descricao;

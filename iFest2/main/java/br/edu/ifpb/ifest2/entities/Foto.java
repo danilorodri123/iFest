@@ -2,7 +2,7 @@ package br.edu.ifpb.ifest2.entities;
 
 import java.util.Date;
 
-public class Foto {
+public class Foto extends Identificavel{
 	
 	private Long id;
 	private Date dataCriacao;
