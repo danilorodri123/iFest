@@ -8,7 +8,9 @@ import org.junit.jupiter.api.Test;
 
 import br.edu.ifpb.ifest2.entities.Cliente;
 import br.edu.ifpb.ifest2.entities.Fornecedor;
+import br.edu.ifpb.ifest2.entities.Midia;
 import br.edu.ifpb.ifest2.entities.Post;
+import br.edu.ifpb.ifest2.entities.Servico;
 import br.edu.ifpb.ifest2.interfaces.IfestInt;
 
 public class Teste {
@@ -34,12 +36,20 @@ public class Teste {
 	@Test
 	void publicar() {
 		IfestInt a = null;
+		Midia midia;
 		Post post = new Post();
 		Post p = a . publicar(post);
 		assertNull(p);
-		assertEquals("" , p . getId());
+		assertEquals(" " , p . getId());
 	}
 	
+	@Test
+	void cadastrarServico() {
+		IfestInt a = null;
+		Servico servico = new Servico();
+		Servico s = a.cadastrarServico(servico);
+		assertNull(s);
+		assertEquals(" " , s.getId());
+	}
 	
-
 }
