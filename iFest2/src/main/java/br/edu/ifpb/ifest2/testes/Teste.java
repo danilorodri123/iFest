@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.Test;
 
 import br.edu.ifpb.ifest2.entities.Cliente;
+import br.edu.ifpb.ifest2.entities.Contrato;
 import br.edu.ifpb.ifest2.entities.Fornecedor;
 import br.edu.ifpb.ifest2.entities.Midia;
 import br.edu.ifpb.ifest2.entities.Post;
@@ -50,6 +51,15 @@ public class Teste {
 		Servico s = a.cadastrarServico(servico);
 		assertNull(s);
 		assertEquals(" " , s.getId());
+	}
+	
+	@Test
+	void contratarServico() {
+		IfestInt a = null;
+		Contrato contrato = null;
+		Contrato cn = a.contratarServico(contrato);
+		assertNull(cn);
+		assertEquals(" ", cn.getId());
 	}
 	
 }

@@ -1,10 +1,26 @@
 package br.edu.ifpb.ifest2.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name= "ENDERECO")
 public class Endereco extends Identificavel{
 	
+	@Id
+	@GeneratedValue
 	private Long id;
+	
+	@Column(name= "endereco_rua")
 	private String rua;
+	
+	@Column(name= "endereco_n")
 	private Long n;
+	
+	@Column(name= "endereco_bairro")
 	private String bairro;
 	
 	public Long getId() {

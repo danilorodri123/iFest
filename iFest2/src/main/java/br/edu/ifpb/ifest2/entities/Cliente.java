@@ -2,6 +2,17 @@ package br.edu.ifpb.ifest2.entities;
 
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CLIENTE")
 public class Cliente extends Pessoa{
 	
 	public Cliente(Long id, String nome, Long telefone, String email, String senha) {
@@ -9,11 +20,23 @@ public class Cliente extends Pessoa{
 		
 	}
 
+	@Id
+	@GeneratedValue
 	private Long id;
+	
+	@Column(name="cliente_cpf")
 	private Long CPF;
+	
+	@Column(name="cliente_rg")
 	private Long RG;
 	
+	@OneToMany
+	@JoinColumn(name="cliente_contrata")
 	private Set<Servico>contrata;
+
+	
+	@OneToOne
+	@JoinColumn(name="cliente_endereco")
 	private Set<Endereco>residencia;
 	
 	public Long getId() {

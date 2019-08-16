@@ -2,12 +2,29 @@ package br.edu.ifpb.ifest2.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="SERVICO")
 public class Servico extends Identificavel{
 	
+	@Id
+	@GeneratedValue
 	private Long id;
+	
+	@Column(name="servico_descricao")
 	private String descricao;
+	
+	@Column(name="servico_tiposervico")
 	private String tipoServico;
+	
+	@Column(name="servico_prazo")
 	private Date prazo;
+	
 	public Long getId() {
 		return id;
 	}

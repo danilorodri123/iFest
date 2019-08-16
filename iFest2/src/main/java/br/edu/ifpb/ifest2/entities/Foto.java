@@ -2,10 +2,24 @@ package br.edu.ifpb.ifest2.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="FOTO")
 public class Foto extends Identificavel{
 	
+	@Id 
+	@GeneratedValue
 	private Long id;
+	
+	@Column(name= "foto_datacriacao")
 	private Date dataCriacao;
+	
+	@Column(name= "foto_tamanho")
 	private Long tamanho;
 	
 	public Long getId() {

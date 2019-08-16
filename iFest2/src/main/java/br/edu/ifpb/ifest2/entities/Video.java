@@ -2,10 +2,25 @@ package br.edu.ifpb.ifest2.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="VIDEO")
+
 public class Video extends Identificavel{
 	
+	@Id
+	@GeneratedValue
 	private Long id;
+	
+	@Column(name="video_datacriacao")
 	private Date dataCriacao;
+	
+	@Column(name="video_duracao")
 	private Long duracao;
 	
 	public Long getId() {

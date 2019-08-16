@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Gerenciador de Clientes</title>
+</h:head>
+
+
+<h:body>
+	<p:messages />
+
+	<h:form>
+		<p:panelGrid columns="2" >
+			<f:facet name="caption">
+				<h:outputText value="Filtros" />
+			</f:facet>
+			<f:facet name="header">
+				<h:outputText value="Cliente" />
+			</f:facet>
+
+			<p:outputLabel value="Id: " for="idField" />
+			<p:inputText id="idField" value="#{clienteBean.entidade.id}"
+				label="Id" style="width:350px" />
+
+			<p:outputLabel value="CPF: " for="cpfField" />
+			<p:inputText id="cpfField" value="#{clienteBean.entidade.CPF}"
+				label="CPF" style="width:350px" />
+				
+			<p:outputLabel value="RG: " for="rgField" />
+			<p:inputText id="rgField" value="#{clienteBean.entidade.RG}"
+				label="RG" style="width:350px" />
+			
+			<p:commandButton id="btnNovo" value="Novo"
+				action="#{clienteBean.save()}" ajax="false" />
+			<p:commandButton id="btnLimpar" value="Limpar"
+				action="#{clienteBean.limpar()}" ajax="false" />
+		</p:panelGrid>
+
+
+		<p:dataTable id="dataTableEntidades" border="1" var="entidade"
+			value="#{clienteBean.entidades}">
+			<p:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{entidade.id}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">CPF</f:facet>
+				<h:outputText value="#{entidade.CPF}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">RG</f:facet>
+				<h:outputText value="#{entidade.RG}" />
+			</p:column>
+			
+			<p:column>
+				<f:facet name="header">Opções</f:facet>
+				<p:commandButton value="Remover" ajax="false"
+					action="#{clienteBean.remove(entidade)}"></p:commandButton>
+				<p:commandButton value="Editar" ajax="false"
+					action="#{clienteBean.editar(entidade.id)}"></p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

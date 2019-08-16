@@ -2,16 +2,37 @@ package br.edu.ifpb.ifest2.entities;
 
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="FORNECEDOR")
 public class Fornecedor extends Pessoa{
 	
 	public Fornecedor(Long id, String nome, Long telefone, String email, String senha) {
 		super(id, nome, telefone, email, senha);
 	}
 	
+	@Id
+	@GeneratedValue
 	private Long id;
+
+	@Column(name="fornecedor_nomeemp")
 	private String nomeemp;
-	private Long CNPJ;
+	
+	@Column(name="fornecedor_cnpj")
+	private Long CNPJ;	
+	
+	@Column(name="fornecedor_posta")
 	private Set<Post> posta;
+	
+	@OneToMany
+	@JoinColumn(name="fornecedor_servico")
 	private Set<Servico> oferece;
 	
 	public Long getId() {

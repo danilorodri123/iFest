@@ -2,11 +2,27 @@ package br.edu.ifpb.ifest2.entities;
 
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="MIDIA")
 public class Midia extends Identificavel{
 	
+	@Id
+	@GeneratedValue
 	private Long id;
 	
+	@OneToMany
+	@JoinColumn(name="midia_foto")
 	private Set<Foto>possui;
+	
+	@OneToMany
+	@JoinColumn(name="midia_video")
 	private Set<Video>tem;
 	
 	public Long getId() {

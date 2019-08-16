@@ -2,13 +2,33 @@ package br.edu.ifpb.ifest2.entities;
 
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name= "POST")
 public class Post extends Identificavel{
 	
+	@Id
+	@GeneratedValue
 	private Long id;
+	
+	@Column(name="post_descricao")
 	private String descricao;
+	
+	@Column(name="post_comentario")
 	private String comenterio;
+	
+	@Column(name="post_curtidas")
 	private Long curtidas;
 	
+	@OneToMany
+	@JoinColumn(name="post_midia")
 	private Set<Midia>possui;
 
 	public Long getId() {
@@ -19,6 +39,7 @@ public class Post extends Identificavel{
 		this.id = id;
 	}
 
+	
 	public String getDescricao() {
 		return descricao;
 	}
