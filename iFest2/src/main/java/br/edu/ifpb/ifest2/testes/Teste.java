@@ -19,7 +19,7 @@ public class Teste {
 	@Test
 	void cadastrarCliente() {
 		IfestInt a =  null;
-		Cliente cliente =  new Cliente();
+		Cliente cliente = null;
 		Cliente c = a . cadastrarCliente(cliente);
 		assertNotNull (c);
 		assertEquals ( " " , c . getId());
@@ -28,7 +28,7 @@ public class Teste {
 	@Test
 	void cadastrarFornecedor () {
 		IfestInt a = null;
-		Fornecedor fornecedor = new Fornecedor();
+		Fornecedor fornecedor = null;
 		Fornecedor f = a . cadastrarFornecedor(fornecedor);
 		assertNull(f);
 		assertEquals(" " , f . getId());
@@ -38,16 +38,16 @@ public class Teste {
 	void publicar() {
 		IfestInt a = null;
 		Midia midia;
-		Post post = new Post();
+		Post post = null;
 		Post p = a . publicar(post);
 		assertNull(p);
 		assertEquals(" " , p . getId());
 	}
-	
+	  
 	@Test
 	void cadastrarServico() {
 		IfestInt a = null;
-		Servico servico = new Servico();
+		Servico servico = null;
 		Servico s = a.cadastrarServico(servico);
 		assertNull(s);
 		assertEquals(" " , s.getId());
