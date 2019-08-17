@@ -6,12 +6,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="FORNECEDOR")
+@Inheritance(strategy=InheritanceType.JOINED)
+
 public class Fornecedor extends Pessoa{
 	
 	public Fornecedor(Long id, String nome, Long telefone, String email, String senha) {
@@ -20,6 +24,7 @@ public class Fornecedor extends Pessoa{
 	
 	@Id
 	@GeneratedValue
+	@Column(name="fornecedor_id")
 	private Long id;
 
 	@Column(name="fornecedor_nomeemp")

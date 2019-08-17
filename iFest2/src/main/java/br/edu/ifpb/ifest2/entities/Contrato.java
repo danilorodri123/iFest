@@ -3,18 +3,48 @@ package br.edu.ifpb.ifest2.entities;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CONTRATO")
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Contrato extends Identificavel{
 	
+	@Id
+	@GeneratedValue
+	@Column(name="contrato_id")
 	private Long id;
+	
+	@Column(name="contrato_dataInicio")
 	private Date dataInicio;
+	
+	@Column(name="contrato_dataTermino")
 	private Date dataTermino;
+	
+	@Column(name="contrato_prorrogacaoContrato")
 	private Date prorrogacaoContrato;
+	
+	@Column(name="contrato_indenizacao")
 	private String indenizacao;	
 	
-	private Contrato contrato;
-	
+	@OneToMany
+	@JoinColumn(name="contrato_entrega")
 	private Set<Servico> entrega;
+	
+	@OneToMany
+	@JoinColumn(name="contrato_criaContrato")
 	private Set<Fornecedor> criaContrato;
+	
+	@OneToMany
+	@JoinColumn(name="contrato_assinaContrato")
 	private Set<Cliente> assinaContrato;
 		
 	public Long getId() {
@@ -66,7 +96,7 @@ public class Contrato extends Identificavel{
 		this.assinaContrato = assinaContrato;
 	}
 	
-	public Contrato() {
+	public Contrato(Long id, Date dataInicio, Date dataTermino, Date prorrogacaoContrato, String indenizacao, Set<Servico> entrega, Set<Fornecedor> criaContrato, Set<Cliente> assinaContrato) {
 		super();
 		this.id = id;
 		this.dataInicio = dataInicio;
