@@ -95,9 +95,8 @@ public class Contrato extends Identificavel{
 	public void setAssinaContrato(Set<Cliente> assinaContrato) {
 		this.assinaContrato = assinaContrato;
 	}
-	
+
 	public Contrato(Long id, Date dataInicio, Date dataTermino, Date prorrogacaoContrato, String indenizacao, Set<Servico> entrega, Set<Fornecedor> criaContrato, Set<Cliente> assinaContrato) {
-		super();
 		this.id = id;
 		this.dataInicio = dataInicio;
 		this.dataTermino = dataTermino;
@@ -106,10 +105,7 @@ public class Contrato extends Identificavel{
 		this.entrega = entrega;
 		this.criaContrato = criaContrato;
 		this.assinaContrato = assinaContrato;
-		
 	}
-
-
 	@Override
 	public String toString() {
 		return "Contrato [id=" + id + ", dataInicio=" + dataInicio + ", dataTermino=" + dataTermino
