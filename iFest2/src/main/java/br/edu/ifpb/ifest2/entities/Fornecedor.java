@@ -18,10 +18,6 @@ import javax.persistence.Table;
 
 public class Fornecedor extends Pessoa{
 	
-	public Fornecedor(Long id, String nome, Long telefone, String email, String senha) {
-		super(id, nome, telefone, email, senha);
-	}
-	
 	@Id
 	@GeneratedValue
 	@Column(name="fornecedor_id")
@@ -70,15 +66,10 @@ public class Fornecedor extends Pessoa{
 	public void setOferece(Set<Servico> oferece) {
 		this.oferece = oferece;
 	}
-	public Fornecedor(Long id, String nome, Long telefone, String email, String senha, Long id2, String nomeemp,
-			Long cNPJ, Set<Post> posta, Set<Servico> oferece) {
+	public Fornecedor(Long id, String nome, Long telefone, String email, String senha) {
 		super(id, nome, telefone, email, senha);
-		id = id2;
-		this.nomeemp = nomeemp;
-		CNPJ = cNPJ;
-		this.posta = posta;
-		this.oferece = oferece;
 	}
+	
 	@Override
 	public String toString() {
 		return "Fornecedor [id=" + id + ", nomeemp=" + nomeemp + ", CNPJ=" + CNPJ + ", posta=" + posta + ", oferece="

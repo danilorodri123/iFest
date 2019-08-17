@@ -72,13 +72,8 @@ public class Post extends Identificavel{
 		this.possui = possui;
 	}
 
-	public Post(Long id, String descricao, String comenterio, Long curtidas, Set<Midia> possui) {
+	public Post() {
 		super();
-		this.id = id;
-		this.descricao = descricao;
-		this.comenterio = comenterio;
-		this.curtidas = curtidas;
-		this.possui = possui;
 	}
 
 	@Override
