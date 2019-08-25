@@ -66,9 +66,6 @@ public class Fornecedor extends Pessoa{
 	public void setOferece(Set<Servico> oferece) {
 		this.oferece = oferece;
 	}
-	public Fornecedor(Long id, String nome, Long telefone, String email, String senha) {
-		super(id, nome, telefone, email, senha);
-	}
 	
 	@Override
 	public String toString() {

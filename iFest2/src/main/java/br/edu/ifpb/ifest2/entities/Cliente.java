@@ -18,11 +18,6 @@ import javax.persistence.Table;
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Cliente extends Pessoa{
 	
-	public Cliente(Long id, String nome, Long telefone, String email, String senha) {
-		super(id, nome, telefone, email, senha);
-		
-	}
-
 	@Id
 	@GeneratedValue
 	@Column(name="cliente_id")
@@ -37,7 +32,6 @@ public class Cliente extends Pessoa{
 	@OneToMany
 	@JoinColumn(name="cliente_contrata")
 	private Set<Servico>contrata;
-
 	
 	@OneToOne
 	@JoinColumn(name="cliente_endereco")

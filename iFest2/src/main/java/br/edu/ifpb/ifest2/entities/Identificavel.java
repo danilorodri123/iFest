@@ -1,11 +1,8 @@
 package br.edu.ifpb.ifest2.entities;
 
-public class Identificavel {
+public interface Identificavel {
 	
-	public Long getId() {
-		return null;
-	}
-	
-	public void setId(Long id) {
-	}
+	public Long getId();
+
+	public void setId(Long id);
 }

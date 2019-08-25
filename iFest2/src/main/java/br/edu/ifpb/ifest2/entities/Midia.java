@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="MIDIA")
-public class Midia extends Identificavel{
+public class Midia implements Identificavel{
 	
 	@Id
 	@GeneratedValue
@@ -43,12 +43,7 @@ public class Midia extends Identificavel{
 	public void setTem(Set<Video> tem) {
 		this.tem = tem;
 	}
-	public Midia(Long id, Set<Foto> possui, Set<Video> tem) {
-		super();
-		this.id = id;
-		this.possui = possui;
-		this.tem = tem;
-	}
+	
 	@Override
 	public String toString() {
 		return "Midia [id=" + id + ", possui=" + possui + ", tem=" + tem + "]";

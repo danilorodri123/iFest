@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="SERVICO")
-public class Servico extends Identificavel{
+public class Servico implements Identificavel{
 	
 	@Id
 	@GeneratedValue
@@ -47,13 +47,6 @@ public class Servico extends Identificavel{
 		return prazo;
 	}
 	public void setPrazo(Date prazo) {
-		this.prazo = prazo;
-	}
-	public Servico(Long id, String descricao, String tipoServico, Date prazo) {
-		super();
-		this.id = id;
-		this.descricao = descricao;
-		this.tipoServico = tipoServico;
 		this.prazo = prazo;
 	}
 	@Override

@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="CONTRATO")
 @Inheritance(strategy=InheritanceType.JOINED)
-public class Contrato extends Identificavel{
+public class Contrato implements Identificavel{
 	
 	@Id
 	@GeneratedValue
@@ -96,16 +96,6 @@ public class Contrato extends Identificavel{
 		this.assinaContrato = assinaContrato;
 	}
 
-	public Contrato(Long id, Date dataInicio, Date dataTermino, Date prorrogacaoContrato, String indenizacao, Set<Servico> entrega, Set<Fornecedor> criaContrato, Set<Cliente> assinaContrato) {
-		this.id = id;
-		this.dataInicio = dataInicio;
-		this.dataTermino = dataTermino;
-		this.prorrogacaoContrato = prorrogacaoContrato;
-		this.indenizacao = indenizacao;
-		this.entrega = entrega;
-		this.criaContrato = criaContrato;
-		this.assinaContrato = assinaContrato;
-	}
 	@Override
 	public String toString() {
 		return "Contrato [id=" + id + ", dataInicio=" + dataInicio + ", dataTermino=" + dataTermino

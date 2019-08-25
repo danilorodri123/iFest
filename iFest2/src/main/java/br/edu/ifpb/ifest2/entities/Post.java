@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name= "POST")
-public class Post extends Identificavel{
+public class Post implements Identificavel{
 	
 	@Id
 	@GeneratedValue
@@ -72,9 +72,6 @@ public class Post extends Identificavel{
 		this.possui = possui;
 	}
 
-	public Post() {
-		super();
-	}
 
 	@Override
 	public String toString() {

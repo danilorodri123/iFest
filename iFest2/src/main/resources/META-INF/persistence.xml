@@ -11,6 +11,7 @@
 		<class>br.edu.ifpb.ifest2.entities.Post</class>
 		<class>br.edu.ifpb.ifest2.entities.Servico</class>
 		<class>br.edu.ifpb.ifest2.entities.Video</class>
+		<class>br.edu.ifpb.ifest2.entities.Contrato</class>
 			
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/ifest"/>

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="VIDEO")
 
-public class Video extends Identificavel{
+public class Video implements Identificavel{
 	
 	@Id
 	@GeneratedValue
@@ -41,12 +41,7 @@ public class Video extends Identificavel{
 	public void setDuracao(Long duracao) {
 		this.duracao = duracao;
 	}
-	public Video(Long id, Date dataCriacao, Long duracao) {
-		super();
-		this.id = id;
-		this.dataCriacao = dataCriacao;
-		this.duracao = duracao;
-	}
+	
 	@Override
 	public String toString() {
 		return "Video [id=" + id + ", dataCriacao=" + dataCriacao + ", duracao=" + duracao + "]";

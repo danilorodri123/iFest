@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="PESSOA")
-public class Pessoa extends Identificavel{
+public class Pessoa implements Identificavel{
 	
 	@Id
 	@GeneratedValue
@@ -54,14 +54,6 @@ public class Pessoa extends Identificavel{
 		return senha;
 	}
 	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-	public Pessoa(Long id, String nome, Long telefone, String email, String senha) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.telefone = telefone;
-		this.email = email;
 		this.senha = senha;
 	}
 	@Override

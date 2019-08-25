@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name= "ENDERECO")
-public class Endereco extends Identificavel{
+public class Endereco implements Identificavel{
 	
 	@Id
 	@GeneratedValue
@@ -47,13 +47,7 @@ public class Endereco extends Identificavel{
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-	public Endereco(Long id, String rua, Long n, String bairro) {
-		super();
-		this.id = id;
-		this.rua = rua;
-		this.n = n;
-		this.bairro = bairro;
-	}
+	
 	@Override
 	public String toString() {
 		return "Endereco [id=" + id + ", rua=" + rua + ", n=" + n + ", bairro=" + bairro + "]";

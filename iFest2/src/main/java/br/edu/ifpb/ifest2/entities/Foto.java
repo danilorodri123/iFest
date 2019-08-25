@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="FOTO")
-public class Foto extends Identificavel{
+public class Foto implements Identificavel{
 	
 	@Id 
 	@GeneratedValue
@@ -40,12 +40,7 @@ public class Foto extends Identificavel{
 	public void setTamanho(Long tamanho) {
 		this.tamanho = tamanho;
 	}
-	public Foto(Long id, Date dataCriacao, Long tamanho) {
-		super();
-		this.id = id;
-		this.dataCriacao = dataCriacao;
-		this.tamanho = tamanho;
-	}
+	
 	@Override
 	public String toString() {
 		return "Foto [id=" + id + ", dataCriacao=" + dataCriacao + ", tamanho=" + tamanho + "]";
