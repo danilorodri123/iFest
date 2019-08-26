@@ -29,7 +29,8 @@ public class Fornecedor extends Pessoa{
 	@Column(name="fornecedor_cnpj")
 	private Long CNPJ;	
 	
-	@Column(name="fornecedor_posta")
+	@OneToMany
+	@JoinColumn(name="fornecedor_posta")
 	private Set<Post> posta;
 	
 	@OneToMany

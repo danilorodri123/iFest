@@ -33,9 +33,9 @@ public class Cliente extends Pessoa{
 	@JoinColumn(name="cliente_contrata")
 	private Set<Servico>contrata;
 	
-	@OneToOne
+	@OneToMany
 	@JoinColumn(name="cliente_endereco")
-	private Set<Endereco>residencia;
+	private Set<Endereco> residencia;
 	
 	public Long getId() {
 		return id;

@@ -27,7 +27,7 @@ public class PublicarTeste {
 		service.update(p);
 		
 		Post p3 = service.getByID(0);
-		assertEquals("Ana",p3.getDescricao());
+		assertEquals("descricao",p3.getDescricao());
 		service.remove(p2);
 		
 		Post p4 = service.getByID(0);

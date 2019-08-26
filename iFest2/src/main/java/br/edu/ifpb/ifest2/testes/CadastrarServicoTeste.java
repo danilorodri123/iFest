@@ -27,7 +27,7 @@ public class CadastrarServicoTeste {
 		service.update(s);
 		
 		Servico s3 = service.getByID(0);
-		assertEquals("Ana",s3.getTipoServico());
+		assertEquals("buffet",s3.getTipoServico());
 		service.remove(s2);
 		
 		Servico s4 = service.getByID(0);
