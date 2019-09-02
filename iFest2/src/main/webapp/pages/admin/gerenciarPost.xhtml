@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Gerenciador de Publicacoes</title>
+</h:head>
+
+
+<h:body>
+	<p:messages />
+
+	<h:form>
+		<p:panelGrid columns="2" >
+			<f:facet name="caption">
+				<h:outputText value="Filtros" />
+			</f:facet>
+			<f:facet name="header">
+				<h:outputText value="Post" />
+			</f:facet>
+
+			<p:outputLabel value="Id: " for="idField" />
+			<p:inputText id="idField" value="#{postBean.entidade.id}"
+				label="Id" style="width:350px" />
+
+			<p:outputLabel value="Descricao: " for="descricaoField" />
+			<p:inputText id="descricaoField" value="#{postBean.entidade.descricao}"
+				label="Descricao" style="width:350px" />
+				
+			<p:outputLabel value="Comentario: " for="comentarioField" />
+			<p:inputText id="comentarioField" value="#{postBean.entidade.comentario}"
+				label="Comentario" style="width:350px" />
+				
+			<p:outputLabel value="Curtidas: " for="curtidasField" />
+			<p:inputText id="curtidasField" value="#{postBean.entidade.curtidas}"
+				label="Curtidas" style="width:350px" />
+			
+			<p:commandButton id="btnNovo" value="Novo"
+				action="#{postBean.save()}" ajax="false" />
+			<p:commandButton id="btnLimpar" value="Limpar"
+				action="#{postBean.limpar()}" ajax="false" />
+		</p:panelGrid>
+
+
+		<p:dataTable id="dataTableEntidades" border="1" var="entidade"
+			value="#{postBean.entidades}">
+			<p:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{entidade.id}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">Descricao</f:facet>
+				<h:outputText value="#{entidade.descricao}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">Comentario</f:facet>
+				<h:outputText value="#{entidade.comentario}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">Curtidas</f:facet>
+				<h:outputText value="#{entidade.curtidas}" />
+			</p:column>
+			
+			<p:column>
+				<f:facet name="header">Opções</f:facet>
+				<p:commandButton value="Remover" ajax="false"
+					action="#{postBean.remove(entidade)}"></p:commandButton>
+				<p:commandButton value="Editar" ajax="false"
+					action="#{postBean.editar(entidade.id)}"></p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

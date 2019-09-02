@@ -22,7 +22,7 @@ public class Post implements Identificavel{
 	private String descricao;
 	
 	@Column(name="post_comentario")
-	private String comenterio;
+	private String comentario;
 	
 	@Column(name="post_curtidas")
 	private Long curtidas;
@@ -49,11 +49,11 @@ public class Post implements Identificavel{
 	}
 
 	public String getComenterio() {
-		return comenterio;
+		return comentario;
 	}
 
-	public void setComenterio(String comenterio) {
-		this.comenterio = comenterio;
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
 	}
 
 	public Long getCurtidas() {
@@ -75,7 +75,7 @@ public class Post implements Identificavel{
 
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", descricao=" + descricao + ", comenterio=" + comenterio + ", curtidas=" + curtidas
+		return "Post [id=" + id + ", descricao=" + descricao + ", comenterio=" + comentario + ", curtidas=" + curtidas
 				+ ", possui=" + possui + "]";
 	}
 
@@ -83,7 +83,7 @@ public class Post implements Identificavel{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((comenterio == null) ? 0 : comenterio.hashCode());
+		result = prime * result + ((comentario == null) ? 0 : comentario.hashCode());
 		result = prime * result + ((curtidas == null) ? 0 : curtidas.hashCode());
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -100,10 +100,10 @@ public class Post implements Identificavel{
 		if (getClass() != obj.getClass())
 			return false;
 		Post other = (Post) obj;
-		if (comenterio == null) {
-			if (other.comenterio != null)
+		if (comentario == null) {
+			if (other.comentario != null)
 				return false;
-		} else if (!comenterio.equals(other.comenterio))
+		} else if (!comentario.equals(other.comentario))
 			return false;
 		if (curtidas == null) {
 			if (other.curtidas != null)
