@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Gerenciador de Contrato</title>
+</h:head>
+
+
+<h:body>
+	<p:messages />
+
+	<h:form>
+		<p:panelGrid columns="2" >
+			<f:facet name="caption">
+				<h:outputText value="Filtros" />
+			</f:facet>
+			<f:facet name="header">
+				<h:outputText value="Contrato" />
+			</f:facet>
+
+			<p:outputLabel value="Id: " for="idField" />
+			<p:inputText id="idField" value="#{contratoBean.entidade.id}"
+				label="Id" style="width:350px" />
+
+			<p:outputLabel value="dataInicio: " for="dataInicioField" />
+			<p:inputText id="dataInicioField" value="#{contratoBean.entidade.dataInicio}"
+				label="dataInicio" style="width:350px" />
+				
+			<p:outputLabel value="dataTermino: " for="dataTerminoField" />
+			<p:inputText id="dataTerminoField" value="#{contratoBean.entidade.dataTermino}"
+				label="dataTermino" style="width:350px" />
+				
+			<p:outputLabel value="prorrogacaoContrato" for="prorrogacaoContratoField" />
+			<p:inputText id="prorrogacaoContratoField" value="#{contratoBean.entidade.prorrogacaoContrato}"
+				label="prorrogacaoContrato" style="width:350px" />
+				
+			<p:outputLabel value="indenizacao" for="indenizacaoField" />
+			<p:inputText id="indenizacaoField" value="#{contratoBean.entidade.indenizacao}"
+				label="indenizacao" style="width:350px" />
+				
+			<p:outputLabel value="criaContrato" for="criaContratoField" />
+			<p:inputText id="criaContratoField" value="#{contratoBean.entidade.criaContrato}"
+				label="criaContrato" style="width:350px" />
+				
+			<p:outputLabel value="assinaContrato" for="assinaContratoField" />
+			<p:inputText id="assinaContratoField" value="#{contratoBean.entidade.assinaContrato}"
+				label="assinaContrato" style="width:350px" />
+				
+			<p:commandButton id="btnNovo" value="Novo"
+				action="#{clienteBean.save()}" ajax="false" />
+			<p:commandButton id="btnLimpar" value="Limpar"
+				action="#{clienteBean.limpar()}" ajax="false" />
+		</p:panelGrid>
+
+
+		<p:dataTable id="dataTableEntidades" border="1" var="entidade"
+			value="#{clienteBean.entidades}">
+			<p:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{entidade.id}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">dataInicio</f:facet>
+				<h:outputText value="#{entidade.dataInicio}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">dataTermino</f:facet>
+				<h:outputText value="#{entidade.dataTermino}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">prorrogacaoContrato</f:facet>
+				<h:outputText value="#{entidade.prorrogacaoContrato}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">indenizacao</f:facet>
+				<h:outputText value="#{entidade.indenizacao}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">criaContrato</f:facet>
+				<h:outputText value="#{entidade.criaContrato}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">assinaContrato</f:facet>
+				<h:outputText value="#{entidade.assinaContrato}" />
+			</p:column>
+			
+			<p:column>
+				<f:facet name="header">Opções</f:facet>
+				<p:commandButton value="Remover" ajax="false"
+					action="#{contratoBean.remove(entidade)}"></p:commandButton>
+				<p:commandButton value="Editar" ajax="false"
+					action="#{contratoBean.editar(entidade.id)}"></p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

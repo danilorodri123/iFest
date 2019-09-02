@@ -15,7 +15,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="CONTRATO")
-@Inheritance(strategy=InheritanceType.JOINED)
 public class Contrato implements Identificavel{
 	
 	@Id
