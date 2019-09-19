@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Gerenciador Midia </title>
+</h:head>
+
+
+<h:body>
+	<p:messages />
+
+	<h:form>
+		<p:panelGrid columns="2" >
+			<f:facet name="caption">
+				<h:outputText value="Filtros" />
+			</f:facet>
+			<f:facet name="header">
+				<h:outputText value="Midia" />
+			</f:facet>
+
+			<p:outputLabel value="Foto: " for="fotoField" />
+			<p:inputText id="fotoField" value="#{midiaBean.entidade.foto}"
+				label="Foto" style="width:350px" />
+
+			<p:outputLabel value="Video: " for="videoField" />
+			<p:inputText id="videoField" value="#{midiaBean.entidade.video}"
+				label="Video" style="width:350px" />
+
+
+			<p:commandButton id="btnNovo" value="Novo"
+				action="#{midiaBean.save()}" ajax="false" />
+			<p:commandButton id="btnLimpar" value="Limpar"
+				action="#{midiaBean.limpar()}" ajax="false" />
+		</p:panelGrid>
+
+
+		<p:dataTable id="dataTableEntidades" border="1" var="entidade"
+			value="#{midiaBean.entidades}">
+			<p:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{entidade.id}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">Foto</f:facet>
+				<h:outputText value="#{entidade.foto}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">Video</f:facet>
+				<h:outputText value="#{entidade.video}" />
+			</p:column>
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</p:column>
+			<p:column>
+				<f:facet name="header">Opções</f:facet>
+				<p:commandButton value="Remover" ajax="false"
+					action="#{midiaBean.remove(entidade)}"></p:commandButton>
+				<p:commandButton value="Editar" ajax="false"
+					action="#{midiaBean.editar(entidade.id)}"></p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>
