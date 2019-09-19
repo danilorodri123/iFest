@@ -4,7 +4,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Perfil </title>
+	<title>Gerenciador Midia </title>
 </h:head>
 
 
@@ -21,23 +21,23 @@
 			</f:facet>
 
 			<p:outputLabel value="Foto: " for="fotoField" />
-			<p:inputText id="fotoField" value="#{usuarioBean.entidade.foto}"
+			<p:inputText id="fotoField" value="#{midiaBean.entidade.foto}"
 				label="Foto" style="width:350px" />
 
 			<p:outputLabel value="Video: " for="videoField" />
-			<p:inputText id="videoField" value="#{usuarioBean.entidade.video}"
+			<p:inputText id="videoField" value="#{midiaBean.entidade.video}"
 				label="Video" style="width:350px" />
 
 
 			<p:commandButton id="btnNovo" value="Novo"
-				action="#{usuarioBean.save()}" ajax="false" />
+				action="#{midiaBean.save()}" ajax="false" />
 			<p:commandButton id="btnLimpar" value="Limpar"
-				action="#{usuarioBean.limpar()}" ajax="false" />
+				action="#{midiaBean.limpar()}" ajax="false" />
 		</p:panelGrid>
 
 
 		<p:dataTable id="dataTableEntidades" border="1" var="entidade"
-			value="#{usuarioBean.entidades}">
+			value="#{midiaBean.entidades}">
 			<p:column>
 				<f:facet name="header">ID</f:facet>
 				<h:outputText value="#{entidade.id}" />
@@ -56,9 +56,9 @@
 			<p:column>
 				<f:facet name="header">Opções</f:facet>
 				<p:commandButton value="Remover" ajax="false"
-					action="#{usuarioBean.remove(entidade)}"></p:commandButton>
+					action="#{midiaBean.remove(entidade)}"></p:commandButton>
 				<p:commandButton value="Editar" ajax="false"
-					action="#{usuarioBean.editar(entidade.id)}"></p:commandButton>
+					action="#{midiaBean.editar(entidade.id)}"></p:commandButton>
 			</p:column>
 		</p:dataTable>
 	</h:form>
