@@ -19,15 +19,10 @@
 			<f:facet name="header">
 				<h:outputText value="Midia" />
 			</f:facet>
-
-			<p:outputLabel value="Foto: " for="fotoField" />
-			<p:inputText id="fotoField" value="#{midiaBean.entidade.foto}"
-				label="Foto" style="width:350px" />
-
-			<p:outputLabel value="Video: " for="videoField" />
-			<p:inputText id="videoField" value="#{midiaBean.entidade.video}"
-				label="Video" style="width:350px" />
-
+			
+			<p:outputLabel value="Id: " for="idField" />
+			<p:inputText id="idField" value="#{midiaBean.entidade.id}"
+				label="Id" style="width:350px" />
 
 			<p:commandButton id="btnNovo" value="Novo"
 				action="#{midiaBean.save()}" ajax="false" />
@@ -42,17 +37,7 @@
 				<f:facet name="header">ID</f:facet>
 				<h:outputText value="#{entidade.id}" />
 			</p:column>
-			<p:column>
-				<f:facet name="header">Foto</f:facet>
-				<h:outputText value="#{entidade.foto}" />
-			</p:column>
-			<p:column>
-				<f:facet name="header">Video</f:facet>
-				<h:outputText value="#{entidade.video}" />
-			</p:column>
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-				</h:outputText>
-			</p:column>
+			
 			<p:column>
 				<f:facet name="header">Opções</f:facet>
 				<p:commandButton value="Remover" ajax="false"

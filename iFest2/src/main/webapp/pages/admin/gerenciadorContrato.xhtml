@@ -40,14 +40,6 @@
 			<p:inputText id="indenizacaoField" value="#{contratoBean.entidade.indenizacao}"
 				label="indenizacao" style="width:350px" />
 				
-			<p:outputLabel value="criaContrato" for="criaContratoField" />
-			<p:inputText id="criaContratoField" value="#{contratoBean.entidade.criaContrato}"
-				label="criaContrato" style="width:350px" />
-				
-			<p:outputLabel value="assinaContrato" for="assinaContratoField" />
-			<p:inputText id="assinaContratoField" value="#{contratoBean.entidade.assinaContrato}"
-				label="assinaContrato" style="width:350px" />
-				
 			<p:commandButton id="btnNovo" value="Novo"
 				action="#{clienteBean.save()}" ajax="false" />
 			<p:commandButton id="btnLimpar" value="Limpar"
@@ -62,28 +54,22 @@
 				<h:outputText value="#{entidade.id}" />
 			</p:column>
 			<p:column>
+			
+			</p:column>
 				<f:facet name="header">dataInicio</f:facet>
-				<h:outputText value="#{entidade.dataInicio}" />
+				<f:convertDateTime pattern="dd/MM/yyyy" />
 			</p:column>
 			<p:column>
 				<f:facet name="header">dataTermino</f:facet>
-				<h:outputText value="#{entidade.dataTermino}" />
+				<f:convertDateTime pattern="dd/MM/yyyy" />
 			</p:column>
 			<p:column>
 				<f:facet name="header">prorrogacaoContrato</f:facet>
-				<h:outputText value="#{entidade.prorrogacaoContrato}" />
+				<f:convertDateTime pattern="dd/MM/yyyy" />
 			</p:column>
 			<p:column>
 				<f:facet name="header">indenizacao</f:facet>
 				<h:outputText value="#{entidade.indenizacao}" />
-			</p:column>
-			<p:column>
-				<f:facet name="header">criaContrato</f:facet>
-				<h:outputText value="#{entidade.criaContrato}" />
-			</p:column>
-			<p:column>
-				<f:facet name="header">assinaContrato</f:facet>
-				<h:outputText value="#{entidade.assinaContrato}" />
 			</p:column>
 			
 			<p:column>
