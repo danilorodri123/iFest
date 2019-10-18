@@ -1,12 +1,19 @@
 package br.edu.ifpb.ifest2.beans;
 
+import java.io.IOException;
+import java.security.Principal;
 import java.io.Serializable;
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import br.edu.ifpb.ifest2.entities.Pessoa;
 import br.edu.ifpb.ifest2.services.PessoaService;
@@ -29,6 +36,32 @@ public class PessoaBean implements Serializable {
 	public void init() {
 		entidade = newEntidade();
 		entidades = getService().getAll();
+	}
+	
+	public String getUserLogin() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		ExternalContext externalContext = facesContext.getExternalContext();
+		Principal userPrincipal = externalContext.getUserPrincipal();
+		if (userPrincipal == null) {
+			return "";
+		}
+		return userPrincipal.getName();
+	}
+
+	public void efetuarLogout() throws IOException, ServletException {
+		FacesContext fc = FacesContext.getCurrentInstance();
+		ExternalContext ec = fc.getExternalContext();
+		HttpSession session = (HttpSession) ec.getSession(false);
+		session.invalidate();
+		HttpServletRequest request = (HttpServletRequest) ec.getRequest();
+		request.logout();
+		ec.redirect(ec.getApplicationContextPath());
+	}
+
+	public boolean isUserInRole(String role) {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		ExternalContext externalContext = facesContext.getExternalContext();
+		return externalContext.isUserInRole(role);
 	}
 
 	public void remove(Pessoa entidade) {
