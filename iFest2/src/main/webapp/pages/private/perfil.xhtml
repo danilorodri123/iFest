@@ -4,43 +4,63 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Perfil </title>
+	<title>Gerenciador de Pessoa</title>
 </h:head>
 
 
 <h:body>
 	<p:messages />
-
+	
+	<h:form id="forMenu">
+		<p:menubar>
+			<f:facet name="options">
+					Olá, #{pessoaBean.userLogin}
+					<p:commandButton id="menuItemLogout" value="Logout"
+					icon="fa fa-fw fa-sign-out" action="#{pessoaBean.efetuarLogout}"
+					ajax="false" />
+			</f:facet>
+		</p:menubar>
+	</h:form>
+	
 	<h:form>
-		<p:panelGrid columns="2" >
+		<p:panelGrid columns="2" rendered="#{pessoaBean.isUserInRole('ADMIN')}" >
 			<f:facet name="caption">
 				<h:outputText value="Filtros" />
 			</f:facet>
 			<f:facet name="header">
-				<h:outputText value="Usuário" />
+				<h:outputText value="Pessoa" />
 			</f:facet>
 
 			<p:outputLabel value="Nome: " for="nomeField" />
-			<p:inputText id="nomeField" value="#{usuarioBean.entidade.nome}"
+			<p:inputText id="nomeField" value="#{clienteBean.entidade.nome}"
 				label="Nome" style="width:350px" />
 
 			<p:outputLabel value="E-mail: " for="emailField" />
-			<p:inputText id="emailField" value="#{usuarioBean.entidade.email}"
-				label="Nome" style="width:350px" />
+			<p:inputText id="emailField" value="#{clienteBean.entidade.email}"
+				label="Email" style="width:350px" />
+				
+			<p:outputLabel value="Senha: " for="senhaField" />
+			<p:inputText id="senhaField" value="#{pessoaBean.entidade.senha}"
+				label="Senha" style="width:350px" />
+			
 
-			<p:outputLabel value="Nascimento: " for="nascimentoField" />
-			<p:calendar id="nascimentoField"
-				value="#{usuarioBean.entidade.nascimento}" label="Nascimento" />
+			<p:outputLabel value="Grupo: " for="grupoField" />
+			<p:selectOneMenu id="grupoField" value="#{pessoaBean.entidade.grupo}"
+				label="Grupo" style="width:350px">
+				
+				<f:selectItem itemLabel="OUTROS" itemValue="OUTROS" />
+				<f:selectItem itemLabel="ADMIN" itemValue="ADMIN" />
+			</p:selectOneMenu>
 
 			<p:commandButton id="btnNovo" value="Novo"
-				action="#{usuarioBean.save()}" ajax="false" />
+				action="#{pessoaBean.save()}" ajax="false" />
 			<p:commandButton id="btnLimpar" value="Limpar"
-				action="#{usuarioBean.limpar()}" ajax="false" />
+				action="#{pessoaBean.limpar()}" ajax="false" />
 		</p:panelGrid>
 
 
 		<p:dataTable id="dataTableEntidades" border="1" var="entidade"
-			value="#{usuarioBean.entidades}">
+			value="#{pessoaBean.entidades}">
 			<p:column>
 				<f:facet name="header">ID</f:facet>
 				<h:outputText value="#{entidade.id}" />
@@ -54,12 +74,10 @@
 				<h:outputText value="#{entidade.email}" />
 			</p:column>
 			<p:column>
-				<f:facet name="header">Nascimento</f:facet>
-				<h:outputText value="#{entidade.nascimento}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-				</h:outputText>
+				<f:facet name="header">Senha</f:facet>
+				<h:outputText value="#{entidade.senha}" />
 			</p:column>
-			<p:column>
+			<p:column rendered="#{pessoaBean..isUserInRole('ADMIN')}">
 				<f:facet name="header">Opções</f:facet>
 				<p:commandButton value="Remover" ajax="false"
 					action="#{usuarioBean.remove(entidade)}"></p:commandButton>

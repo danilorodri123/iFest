@@ -26,6 +26,9 @@ public class Pessoa implements Identificavel{
 	@Column(name="pessoa_senha")
 	private String senha;
 	
+	@Column(name="pessoa_grupo")
+	private String grupo;
+	
 	public Long getId() {
 		return id;
 	}
@@ -56,16 +59,26 @@ public class Pessoa implements Identificavel{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	public String getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(String grupo) {
+		this.grupo = grupo;
+	}
+	
 	@Override
 	public String toString() {
 		return "Pessoa [id=" + id + ", nome=" + nome + ", telefone=" + telefone + ", email=" + email + ", senha="
-				+ senha + "]";
+				+ senha + ", grupo=" + grupo + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((grupo == null) ? 0 : grupo.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
@@ -85,6 +98,11 @@ public class Pessoa implements Identificavel{
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
+			return false;
+		if (grupo == null) {
+			if (other.grupo != null)
+				return false;
+		} else if (!grupo.equals(other.grupo))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -109,5 +127,4 @@ public class Pessoa implements Identificavel{
 		return true;
 	}
 	
-
 }

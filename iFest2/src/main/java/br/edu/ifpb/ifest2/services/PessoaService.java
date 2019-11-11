@@ -31,7 +31,7 @@ public class PessoaService implements Serializable, Service<Pessoa> {
 	@Override
 	@TransacionalCdi
 	public void save(Pessoa pessoa) {
-		pessoa.setPassword(hash(pessoa.getPassword()));
+		pessoa.setSenha(hash(pessoa.getSenha()));
 		pessoaDAO.save(pessoa);
 	}
 

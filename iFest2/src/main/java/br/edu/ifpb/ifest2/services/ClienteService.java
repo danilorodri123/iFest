@@ -1,6 +1,10 @@
 package br.edu.ifpb.ifest2.services;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -27,7 +31,21 @@ public class ClienteService implements Serializable, Service<Cliente> {
 	@Override
 	@TransacionalCdi
 	public void save(Cliente cliente) {
+		cliente.setSenha(hash(cliente.getSenha()));
 		clienteDAO.save(cliente);
+	}
+	
+	private String hash(String password) {
+		try {
+			MessageDigest md;
+			md = MessageDigest.getInstance("SHA-256");
+			md.update(password.getBytes("UTF-8"));
+			byte[] digest = md.digest();
+			String output = Base64.getEncoder().encodeToString(digest);
+			return output;
+		} catch (Exception e) {
+			return password;
+		}
 	}
 
 	/* (non-Javadoc)
