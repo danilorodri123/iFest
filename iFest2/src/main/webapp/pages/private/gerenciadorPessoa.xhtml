@@ -23,7 +23,7 @@
 	</h:form>
 	
 	<h:form>
-		<p:panelGrid columns="2" rendered="#{pessoaBean.isUserInRole('ADMIN')}" >
+		<p:panelGrid columns="2" rendered="#{pessoaBean.isUserInRole('CLIENTE')}" >
 			<f:facet name="caption">
 				<h:outputText value="Filtros" />
 			</f:facet>
@@ -32,11 +32,11 @@
 			</f:facet>
 
 			<p:outputLabel value="Nome: " for="nomeField" />
-			<p:inputText id="nomeField" value="#{clienteBean.entidade.nome}"
+			<p:inputText id="nomeField" value="#{pessoaBean.entidade.nome}"
 				label="Nome" style="width:350px" />
 
 			<p:outputLabel value="E-mail: " for="emailField" />
-			<p:inputText id="emailField" value="#{clienteBean.entidade.email}"
+			<p:inputText id="emailField" value="#{pessoaBean.entidade.email}"
 				label="Email" style="width:350px" />
 				
 			<p:outputLabel value="Senha: " for="senhaField" />
@@ -48,7 +48,7 @@
 			<p:selectOneMenu id="grupoField" value="#{pessoaBean.entidade.grupo}"
 				label="Grupo" style="width:350px">
 				
-				<f:selectItem itemLabel="OUTROS" itemValue="OUTROS" />
+				<f:selectItem itemLabel="CLIENTE" itemValue="CLIENTE" />
 				<f:selectItem itemLabel="ADMIN" itemValue="ADMIN" />
 			</p:selectOneMenu>
 
@@ -77,7 +77,7 @@
 				<f:facet name="header">Senha</f:facet>
 				<h:outputText value="#{entidade.senha}" />
 			</p:column>
-			<p:column rendered="#{pessoaBean..isUserInRole('ADMIN')}">
+			<p:column rendered="#{pessoaBean.isUserInRole('ADMIN')}">
 				<f:facet name="header">Opções</f:facet>
 				<p:commandButton value="Remover" ajax="false"
 					action="#{usuarioBean.remove(entidade)}"></p:commandButton>

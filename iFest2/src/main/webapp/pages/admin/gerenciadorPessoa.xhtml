@@ -20,9 +20,6 @@
 				<h:outputText value="Pessoa" />
 			</f:facet>
 
-			<p:outputLabel value="Id: " for="idField" />
-			<p:inputText id="idField" value="#{pessoaBean.entidade.id}"
-				label="Id" style="width:350px" />
 
 			<p:outputLabel value="Nome: " for="nomeField" />
 			<p:inputText id="nomeField" value="#{pessoaBean.entidade.nome}"
@@ -35,6 +32,15 @@
 			<p:outputLabel value="Email: " for="emailField" />
 			<p:inputText id="emailField" value="#{pessoaBean.entidade.email}"
 				label="Email" style="width:350px" />
+				
+			<p:outputLabel value="Grupo: " for="grupoField" />
+			<p:selectOneMenu id="grupoField" value="#{pessoaBean.entidade.grupo}"
+				label="Grupo" style="width:325px">
+				
+				<f:selectItem itemLabel="CLIENTE" itemValue="CLIENTE" />
+				<f:selectItem itemLabel="FORNECEDOR" itemValue="FORNECEDOR" />
+			</p:selectOneMenu>
+
 				
 			<p:outputLabel value="Senha: " for="senhaField" />
 			<p:inputText id="senhaField" value="#{pessoaBean.entidade.senha}"
@@ -69,7 +75,10 @@
 				<f:facet name="header">Senha</f:facet>
 				<h:outputText value="#{entidade.senha}" />
 			</p:column>
-			
+			<p:column>
+				<f:facet name="header">Grupo</f:facet>
+				<h:outputText value="#{entidade.grupo}" />
+			</p:column>			
 			<p:column>
 				<f:facet name="header">Opções</f:facet>
 				<p:commandButton value="Remover" ajax="false"
