@@ -21,13 +21,13 @@ public class Contrato implements Identificavel{
 	private Long id;
 	
 	@Column(name="contrato_dataInicio")
-	private Date dataInicio;
+	private String dataInicio;
 	
 	@Column(name="contrato_dataTermino")
-	private Date dataTermino;
+	private String dataTermino;
 	
 	@Column(name="contrato_prorrogacaoContrato")
-	private Date prorrogacaoContrato;
+	private String prorrogacaoContrato;
 	
 	@Column(name="contrato_indenizacao")
 	private String indenizacao;	
@@ -50,22 +50,22 @@ public class Contrato implements Identificavel{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getDataInicio() {
+	public String getDataInicio() {
 		return dataInicio;
 	}
-	public void setDataInicio(Date dataInicio) {
+	public void setDataInicio(String dataInicio) {
 		this.dataInicio = dataInicio;
 	}
-	public Date getDataTermino() {
+	public String getDataTermino() {
 		return dataTermino;
 	}
-	public void setDataTermino(Date dataTermino) {
+	public void setDataTermino(String dataTermino) {
 		this.dataTermino = dataTermino;
 	}
-	public Date getProrrogacaoContrato() {
+	public String getProrrogacaoContrato() {
 		return prorrogacaoContrato;
 	}
-	public void setProrrogacaoContrato(Date prorrogacaoContrato) {
+	public void setProrrogacaoContrato(String prorrogacaoContrato) {
 		this.prorrogacaoContrato = prorrogacaoContrato;
 	}
 	public String getIndenizacao() {

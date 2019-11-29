@@ -14,8 +14,8 @@ import javax.ws.rs.core.PathSegment;
 import br.edu.ifpb.ifest2.entities.Pessoa;
 import br.edu.ifpb.ifest2.services.PessoaService;
 
-@Path("/cliente")
-public class ClienteServiceRS {
+@Path("/pessoa")
+public class PessoaServiceRS {
 	
 	@Inject
 	private PessoaService pessoaService;
