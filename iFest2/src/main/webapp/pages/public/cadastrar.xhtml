@@ -17,14 +17,20 @@
 		<h:form id="formLogin" prependId="false"
 			onsubmit="action='j_security_check';">
 			
+			<f:facet name="header">
+				<h:outputText value="Login" />
+			</f:facet>
+			
 			<h:panelGrid columns="2" style="text-align:left; margin: auto;">
 				<h:outputLabel for="j_username" value="Email:" />
-				<h:inputText id="j_username" />
+				<h:inputText id="j_username"/>
 
 				<h:outputLabel for="j_password" value="Senha:" />
 				<h:inputSecret id="j_password" />
 
 				<p:outputLabel value="Grupo: " for="grupoField" />
+			
+			
 			<p:selectOneMenu id="grupoField" value="#{pessoaBean.entidade.grupo}"
 				label="Grupo" style="width:192px">
 				
@@ -32,8 +38,8 @@
 				<f:selectItem itemLabel="ADMIN" itemValue="ADMIN" />
 			</p:selectOneMenu>
 				
-				<p:commandButton id="btnCadastrar" value="Cadastrar" action="#{pessoaBean.save()}" ajax="false"
-					icon="fa fa-sign-in" />
+				
+				<p:commandButton id="btnCadastrar" value="Cadastrar" action="#{pessoaBean.save()}" ajax="false" />
 			</h:panelGrid>
 		</h:form>
 	</p:panel>
