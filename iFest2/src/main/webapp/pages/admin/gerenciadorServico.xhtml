@@ -20,17 +20,26 @@
 				<h:outputText value="Servico" />
 			</f:facet>
 
-			<p:outputLabel value="Id: " for="idField" />
-			<p:inputText id="idField" value="#{servicoBean.entidade.id}"
-				label="Id" style="width:350px" />
-
 			<p:outputLabel value="Descricao: " for="descricaoField" />
 			<p:inputText id="descricaoField" value="#{servicoBean.entidade.descricao}"
 				label="Descricao" style="width:350px" />
 				
 			<p:outputLabel value="TipoServico: " for="tipoServicoField" />
-			<p:inputText id="tipoServicoField" value="#{servicoBean.entidade.tipoServico}"
-				label="TipoServico" style="width:350px" />
+			<p:selectOneMenu id="tipoServicoField" value="#{servicoBean.entidade.tipoServico}"
+				label="Selecione o tipo de serviço" style="margin-top:10px">
+				
+				<f:selectItem itemLabel="BUFFET" itemValue="BUFFET" />
+				<f:selectItem itemLabel="CONFEITARIA" itemValue="CONFEITARIA" />
+				<f:selectItem itemLabel="DRINKS" itemValue="DRINKS" />
+				<f:selectItem itemLabel="RECEPÇÃO" itemValue="RECEPÇÃO" />
+				<f:selectItem itemLabel="MAQUIAGEM" itemValue="MAQUIAGEM" />
+				<f:selectItem itemLabel="CERIMONIAL" itemValue="CERIMONIAL" />
+				<f:selectItem itemLabel="VESTUARIO" itemValue="VESTUARIO" />
+				<f:selectItem itemLabel="SALÃO" itemValue="SALÃO" />
+				<f:selectItem itemLabel="FOTOGRAFIA" itemValue="FOTOGRAFIA" />
+				
+				
+			</p:selectOneMenu>
 				
 			<p:outputLabel value="Prazo: " for="prazoField" />
 			<p:calendar id="prazoField"
@@ -44,11 +53,7 @@
 
 
 		<p:dataTable id="dataTableEntidades" border="1" var="entidade"
-			value="#{servicoBean.entidades}">
-			<p:column>
-				<f:facet name="header">ID</f:facet>
-				<h:outputText value="#{entidade.id}" />
-			</p:column>
+			value="#{servicoBean.entidades}"> 
 			<p:column>
 				<f:facet name="header">Descricao</f:facet>
 				<h:outputText value="#{entidade.descricao}" />

@@ -30,6 +30,15 @@ public class ServicoBean implements Serializable {
 		entidade = newEntidade();
 		entidades = getService().getAll();
 	}
+	
+	public void atualizar() {
+		entidades = getService().getAll();
+		for (Servico servico : entidades) {
+			if(servico.getTipoServico() == entidade.getTipoServico()) {
+				return;
+			}
+		}
+	}
 
 	public void remove(Servico entidade) {
 		getService().remove(entidade);
